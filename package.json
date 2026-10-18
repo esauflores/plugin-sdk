@@ -12,6 +12,7 @@
     "plugins",
     "standard-schema"
   ],
+  "license": "MIT",
   "files": [
     "dist",
     "src"

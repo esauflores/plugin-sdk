@@ -208,3 +208,7 @@ bun run example       # examples/basic on Bun and Node
 
 CI (`.github/workflows/ci.yml`) runs the same steps on every push to `main` and on pull requests, with the
 Node and Bun versions from `mise.toml`.
+
+## License
+
+MIT © 2026 Cesar Flores
