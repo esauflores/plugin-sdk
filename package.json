@@ -12,7 +12,15 @@
     "plugins",
     "standard-schema"
   ],
+  "homepage": "https://github.com/esauflores/plugin-sdk#readme",
+  "bugs": {
+    "url": "https://github.com/esauflores/plugin-sdk/issues"
+  },
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/esauflores/plugin-sdk.git"
+  },
   "files": [
     "dist",
     "src"
