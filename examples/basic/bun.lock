@@ -1,0 +1,15 @@
+{
+  "lockfileVersion": 2,
+  "configVersion": 1,
+  "workspaces": {
+    "": {
+      "name": "basic-example",
+      "dependencies": {
+        "basic-example-plugin-greeter": "file:./plugins/greeter",
+      },
+    },
+  },
+  "packages": {
+    "basic-example-plugin-greeter": ["basic-example-plugin-greeter@file:plugins/greeter", { "peerDependencies": { "basic-example": "^1.0.0" } }],
+  }
+}

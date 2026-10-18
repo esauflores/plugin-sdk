@@ -1,0 +1,15 @@
+{
+  "name": "basic-example-plugin-greeter",
+  "version": "1.0.0",
+  "keywords": [
+    "basic-example-plugin"
+  ],
+  "type": "module",
+  "peerDependencies": {
+    "basic-example": "^1.0.0"
+  },
+  "basic-example": {
+    "apiVersion": 1,
+    "entry": "./index.js"
+  }
+}

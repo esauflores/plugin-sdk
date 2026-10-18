@@ -1,0 +1,58 @@
+{
+  "name": "@esauflores/plugin-sdk",
+  "version": "0.1.0",
+  "description": "A small plugin system for Bun and Node: typed hooks, ordered lifecycle, services, npm loading and Standard Schema validation.",
+  "keywords": [
+    "bun",
+    "hooks",
+    "lifecycle",
+    "microkernel",
+    "plugin",
+    "plugin-system",
+    "plugins",
+    "standard-schema"
+  ],
+  "files": [
+    "dist",
+    "src"
+  ],
+  "type": "module",
+  "sideEffects": false,
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "build": "node -e \"require('node:fs').rmSync('dist', { recursive: true, force: true })\" && tsc -p tsconfig.build.json",
+    "check": "vp fmt --check && vp lint && tsc --noEmit",
+    "check:fix": "vp fmt && vp lint --fix && tsc --noEmit",
+    "test": "vp test",
+    "test:watch": "vp test --watch",
+    "test:bun": "bun test",
+    "example": "cd examples/basic && bun install && bun app.ts && node app.ts",
+    "prepublishOnly": "bun run check && bun run test && bun run test:bun && bun run build"
+  },
+  "dependencies": {
+    "@standard-schema/spec": "^1.1.0"
+  },
+  "devDependencies": {
+    "@types/node": "^26.6.4",
+    "typescript": "^7.0.2",
+    "vite-plus": "^1.1.0",
+    "zod": "^4.6.7"
+  },
+  "overrides": {
+    "vite": "npm:@voidzero-dev/vite-plus-core@1.1.0",
+    "vitest": "5.0.3"
+  },
+  "engines": {
+    "node": ">=24.0.0"
+  }
+}

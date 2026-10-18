@@ -1,0 +1,37 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+
+      # Installs the Node and Bun versions from mise.toml, same as local.
+      - uses: jdx/mise-action@v5
+
+      - name: Install dependencies
+        run: bun install --frozen-lockfile
+
+      - name: Format, lint, typecheck
+        run: bun run check
+
+      - name: Test on Node (Vitest)
+        run: bun run test
+
+      - name: Test on Bun
+        run: bun run test:bun
+
+      - name: Example on Bun and Node
+        run: bun run example
